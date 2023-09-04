@@ -1,13 +1,15 @@
 import openai
 import json
 import os
-from dotenv import load_dotenv
+import sys
 
-
+openai.api_key=os.getenv("OPENAI_API_KEY")
+print(os.getenv("OPENAI_API_KEY"))
 class Prompter:
-    dotenv_path = '../../.env'
-    load_dotenv(dotenv_path)
+    #dotenv_path = '../../.env'
+    #load_dotenv(dotenv_path)
     openai.api_key=os.getenv("OPENAI_API_KEY")
+
 
     def __init__(self):
         pass

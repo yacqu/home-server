@@ -3,13 +3,16 @@ import datetime
 import time
 from time import sleep
 import os
-
 import sys
+import openai
 sys.path.append("toolbox/gpt")
 from api import Prompter
 
+openai.api_key=os.getenv("OPENAI_API_KEY")
+
 
 app = Flask(__name__)
+openai.api_key=os.getenv("OPENAI_API_KEY")
 
 
 
