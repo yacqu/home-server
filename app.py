@@ -5,14 +5,17 @@ from time import sleep
 import os
 import sys
 import openai
-sys.path.append("toolbox/gpt")
-from api import Prompter
+from toolbox.api import Prompter
 
-openai.api_key=os.getenv("OPENAI_API_KEY")
 
 
 app = Flask(__name__)
-openai.api_key=os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY=os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY="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"
+
+gptBot = Prompter(OPENAI_API_KEY)
+textRecieved = "Hey! hows your day going?"
+gptBot.generateResponse(textRecieved)
 
 
 
@@ -32,8 +35,6 @@ def text():
             writer.write('\n')
             writer.write('\n'.join(textList))
         
-
-
     return render_template('text.html')
 
 @app.route('/sendTextFromMac', methods=['GET', 'POST'])

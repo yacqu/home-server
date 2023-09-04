@@ -3,16 +3,14 @@ import json
 import os
 import sys
 
-openai.api_key=os.getenv("OPENAI_API_KEY")
-print(os.getenv("OPENAI_API_KEY"))
+
+
 class Prompter:
-    #dotenv_path = '../../.env'
-    #load_dotenv(dotenv_path)
-    openai.api_key=os.getenv("OPENAI_API_KEY")
 
 
-    def __init__(self):
-        pass
+    def __init__(self, OPENAI_API_KEY):
+        self.OPENAI_API_KEY = OPENAI_API_KEY
+        openai.api_key=self.OPENAI_API_KEY
 
     def generate_prompt(self, textRecieved):
         return """I am yacqub, a 23 year old first generation somali boy who lives in the city of phoenix. 
@@ -28,7 +26,7 @@ class Prompter:
                 )
     
     def generateResponse(self, textRecieved):
-
+        openai.api_key=self.OPENAI_API_KEY
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=self.generate_prompt(textRecieved),
@@ -38,10 +36,3 @@ class Prompter:
 
         print(result)
 
-
-
-
-gptBot = Prompter()
-
-textRecieved = "Hey! hows your day going?"
-gptBot.generateResponse(textRecieved)
