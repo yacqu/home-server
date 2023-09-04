@@ -10,19 +10,20 @@ class iMessageSender:
     def __init__(self):
         pass
     
-    def textSender(self, number, message, timestamp):
+    def textSender(self, phoneNumber, message, timestamp):
 
-        scheduledAtTimestamp = datetime.fromtimestamp(time.time())
-        print(number)
+        scheduledAtTimestamp = datetime.datetime.now()
+        print(phoneNumber)
         print(message)
         print(scheduledAtTimestamp)
 
-        guid = imessage.send(number, message)
+        guid = imessage.send(phoneNumber, message)
 
-        return print('Text saying', message, 'was sent to', number, "@", scheduledAtTimestamp)
+        return print('Text saying', message, 'was sent to', phoneNumber, "@", scheduledAtTimestamp)
 
-phone = "4806486823"
+phoneNumber = "4806486823"
 message = "this is a test message to test the class"
+timestamp = "2023-09-04 12:01:40.347519"
 
 sender = iMessageSender()
-sender.textSender(phone, message)
+sender.textSender(phoneNumber, message, timestamp)
