@@ -4,9 +4,14 @@ import time
 from time import sleep
 import os
 
+import sys
+sys.path.append("toolbox/gpt")
+from api import Prompter
 
 
 app = Flask(__name__)
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def text():
