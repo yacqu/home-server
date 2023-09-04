@@ -1,10 +1,8 @@
 from py_imessage import imessage
-import sleep
+from time import sleep
 
-phone = "1234567890"
+phone = "4806486823"
 
-if not imessage.check_compatibility(phone):
-    print("Not an iPhone")
 
 guid = imessage.send(phone, "Hello World!")
 
