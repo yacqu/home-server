@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Schedule A Text!
+{% endblock %}
+
+{% block head %}
+  <style type="text/css">
+    .text-div { 
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex; 
+        flex-direction: column;
+        padding: 25%;
+    }
+    .text-box { 
+        width: 60%;
+        padding-right: 25%;
+        margin-bottom: 30px;
+    }
+    .text-area { 
+        width: 60%;
+        height: 150px;
+        padding-right: 25%;
+        margin-bottom: 30px;
+    }
+    .datetime { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        width: 80px;
+        padding-right: 25%;
+        margin-bottom: 20px;
+    }
+
+    .button { 
+        width: 100px;
+        margin-top: 10px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+    <form class="flex flex-col" method="POST" action ="#">
+        <div class="text-div">
+            <label class="text-lg">Enter a phone number</label>
+            <input class="text-box" type="text" name="num" id="num"/>
+    
+            <label>Enter text message</label>
+            <textarea class="text-area" type="text" name="message" id="message"></textarea>
+    
+            <label for="textsendtime">Schedule text for: (date and time):</label>
+            <input class="datetime" type="datetime-local" id="textsendtime" name="textsendtime">
+    
+            <input class="button" type="submit" name="sendtext" id="sendtext"></input>
+        </div>
+    </form>
+
+{% endblock %}
