@@ -88,11 +88,11 @@ def print_messages(messages):
 
 
 # ask the user for the location of the database
-db_location = input("Enter the location of the database: ")
+db_location = "/Users/yacqubabdirahman/Library/Messages/chat.db"
 # ask the user for the number of messages to read
-n = input("Enter the number of messages to read: ")
+n = "10"
 
 # Remove the 2 lines below after testing -- they are for testing only
 output = read_messages(db_location, n)
-print_messages(output)
+print_messages(output)[0]
 # Remove the 2 lines above after testing -- they are for testing only
