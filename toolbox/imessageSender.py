@@ -13,17 +13,17 @@ class iMessageSender:
     def textSender(self, phoneNumber, message, timestamp):
 
         scheduledAtTimestamp = datetime.datetime.now()
-        print(phoneNumber)
-        print(message)
-        print(scheduledAtTimestamp)
-
         guid = imessage.send(phoneNumber, message)
-
         return print('Text saying', message, 'was sent to', phoneNumber, "@", scheduledAtTimestamp)
+    
+    def gptTextSender(self, phoneNumber, message):
+        
+        guid = imessage.send(phoneNumber, message)
+        return print('Text saying', message, 'was sent to', phoneNumber)
 
-phoneNumber = "4806486823"
-message = "this is a test message to test the class"
-timestamp = "2023-09-04 12:01:40.347519"
+#phoneNumber = "4806486823"
+#message = "this is a test message to test the class"
+#timestamp = "2023-09-04 12:01:40.347519"
 
-sender = iMessageSender()
-sender.textSender(phoneNumber, message, timestamp)
+#sender = iMessageSender()
+#sender.textSender(phoneNumber, message, timestamp)

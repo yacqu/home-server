@@ -34,5 +34,5 @@ class Prompter:
         )
         result=response.choices[0].text
 
-        print(result)
+        return result
 
