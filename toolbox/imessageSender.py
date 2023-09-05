@@ -1,4 +1,4 @@
-from py_imessage import imessage
+from py_imessage import imessage, db_conn
 import datetime
 import time
 from time import sleep
@@ -8,6 +8,7 @@ from time import sleep
 class iMessageSender:
     
     def __init__(self):
+        
         pass
     
     def textSender(self, phoneNumber, message, timestamp):
@@ -17,9 +18,11 @@ class iMessageSender:
         return print('Text saying', message, 'was sent to', phoneNumber, "@", scheduledAtTimestamp)
     
     def gptTextSender(self, phoneNumber, message):
-        
         guid = imessage.send(phoneNumber, message)
-        return print('Text saying', message, 'was sent to', phoneNumber)
+        print('Text saying', message, 'was sent to', phoneNumber)
+        return guid
+    
+
 
 #phoneNumber = "4806486823"
 #message = "this is a test message to test the class"

@@ -36,6 +36,8 @@ def textScheduler():
         
         sender = iMessageSender()
         sender.textSender(phoneNumber, message, timestamp)
+
+
         
     return render_template('text.html')
 

@@ -42,3 +42,15 @@ changed the terminal permisions
 4806486823
 changed the terminal permisions
 2023-09-08T17:48
+4806486823
+Gave Terminal Acces to db
+2023-09-01T18:30
+4806486823
+added get most recent Message
+2023-09-07T18:29
+4806486823
+added get most recent Message
+2023-09-07T18:29
+4806486823
+added get most recent Message
+2023-09-07T18:29
