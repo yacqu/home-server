@@ -33,6 +33,7 @@ def read_messages(db_location, n, self_number='Me', human_readable_date=True):
     
     # Initialize an empty list for messages
     messages = []
+    messagesNew = []
 
     # Loop through each result row and unpack variables
     for result in results:
@@ -78,9 +79,11 @@ def read_messages(db_location, n, self_number='Me', human_readable_date=True):
         messages.append(
             {"rowid": rowid, "date": date, "body": body, "phone_number": phone_number, "is_from_me": is_from_me,
              "cache_roomname": cache_roomname, 'group_chat_name' : mapped_name})
+        
+        messagesNew.append({"phone_number": phone_number, "body": body,})
 
     conn.close()
-    return messages
+    return messages, messagesNew
 
 
 def print_messages(messages):
@@ -93,6 +96,6 @@ db_location = "/Users/yacqubabdirahman/Library/Messages/chat.db"
 n = "10"
 
 # Remove the 2 lines below after testing -- they are for testing only
-output = read_messages(db_location, n)
-print_messages(output)[0]
+[messages, messagesNew] = read_messages(db_location, n)
+print_messages(messagesNew)
 # Remove the 2 lines above after testing -- they are for testing only
