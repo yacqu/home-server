@@ -7,6 +7,7 @@ import sys
 import openai
 from toolbox.api import Prompter
 from toolbox.imessageSender import iMessageSender
+from db.messageQuery import messageFilter, read_messages
 
 #db = sqlite3.connect(db_path, uri=True) sqlite3.DatabaseError: authorization denied
 
@@ -45,9 +46,15 @@ def textScheduler():
 def gptResponder():
     if request.method == 'POST':
 
-        recivedMessageSender = "4806486823"
-        recivedMessage = "heyyy"
-        recivedMessageResponseDelayTime = 30
+
+        recivedMessageResponseDelayTime = 10
+
+        n=1
+        [messages, messagesNew] = read_messages(n)
+        [uniqueTextThreads,lastMessage,lastNumber] = messageFilter(messagesNew)
+        print(lastNumber, lastMessage)
+        recivedMessageSender = lastNumber
+        recivedMessage = lastMessage
 
         sleep(recivedMessageResponseDelayTime)
         gptBot = Prompter(OPENAI_API_KEY)

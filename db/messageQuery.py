@@ -102,6 +102,9 @@ def messageFilter(messages):
     
     messages.reverse()
     for message in messages:
+        if message == messages[0]:
+            lastMessage = message['body']
+            lastNumber = message['phone_number']
         if message['is_from_me'] == 1:
             #print("Yacqub: ", message['body'])
             for number in uniqueNumbers:
@@ -114,7 +117,7 @@ def messageFilter(messages):
                 if number == message['phone_number']:
                     uniqueTextThreads[number]["textsToMe"].append(message['body'])
     
-    print(uniqueTextThreads)
+    return uniqueTextThreads,lastMessage,lastNumber
     
 def read_messages_for_number(self_number='Me', phone_number_to_query='Phone_Number', n=10, human_readable_date=True):
     # Connect to the database and execute a query to join message and handle tables
@@ -129,7 +132,7 @@ def read_messages_for_number(self_number='Me', phone_number_to_query='Phone_Numb
     ORDER BY message.date DESC LIMIT ?
     """
     results = cursor.execute(query, (phone_number_to_query, n)).fetchall()
-    
+
     # Initialize an empty list for messages
     messages = []
     messagesNew = []
@@ -175,17 +178,19 @@ def read_messages_for_number(self_number='Me', phone_number_to_query='Phone_Numb
     conn.close()
     return messages, messagesNew
 
+
 # ask the user for the location of the database
 db_location = "/Users/yacqubabdirahman/Library/Messages/chat.db"
 # ask the user for the number of messages to read
-n = "10"
+n = "1"
 
 # Remove the 2 lines below after testing -- they are for testing only
 [messages, messagesNew] = read_messages(n)
 #print_messages(messagesNew)
 
 [messagesNUM, messagesNewNUM] = read_messages_for_number("+17632272653")
-print_messages(messagesNewNUM)
-messageFilter(messagesNew)
+print_messages(messagesNUM)
+[uniqueTextThreads,lastMessage,lastNumber] = messageFilter(messagesNew)
+print(lastMessage)
 # Remove the 2 lines above after testing -- they are for testing only
 
