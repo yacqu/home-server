@@ -24,3 +24,21 @@ added a delay, lets see if it works
 4806486823
 added a delay, lets see if it works
 2023-09-06T17:21
+4806486823
+text from macbook
+2023-09-06T17:41
+
+removed gethandle fornumber
+2023-09-08T17:48
+4806486823
+removed gethandle fornumber
+2023-09-08T17:48
+4806486823
+removed gethandle fornumber
+2023-09-08T17:48
+4806486823
+changed the terminal permisions
+2023-09-08T17:48
+4806486823
+changed the terminal permisions
+2023-09-08T17:48
