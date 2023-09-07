@@ -191,6 +191,6 @@ n = "1"
 [messagesNUM, messagesNewNUM] = read_messages_for_number("+17632272653")
 print_messages(messagesNUM)
 [uniqueTextThreads,lastMessage,lastNumber] = messageFilter(messagesNew)
-print(lastMessage)
+
 # Remove the 2 lines above after testing -- they are for testing only
 

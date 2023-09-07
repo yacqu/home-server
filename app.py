@@ -14,7 +14,7 @@ from db.messageQuery import messageFilter, read_messages
 app = Flask(__name__)
 
 OPENAI_API_KEY_import=os.getenv("OPENAI_API_KEY")
-OPENAI_API_KEY="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"
+OPENAI_API_KEY="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"
 
 
 
@@ -57,6 +57,7 @@ def gptResponder():
         recivedMessage = lastMessage
 
         sleep(recivedMessageResponseDelayTime)
+        OPENAI_API_KEY="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"
         gptBot = Prompter(OPENAI_API_KEY)
         gptResponse = gptBot.generateResponse(recivedMessage)
         print(gptResponse)
@@ -64,7 +65,7 @@ def gptResponder():
         sender = iMessageSender()
         sender.gptTextSender(recivedMessageSender, gptResponse)
         
-    return render_template('text.html')
+    return render_template('gpt.html')
 
 
 @app.route('/sendTextFromMac', methods=['GET', 'POST'])
